@@ -9,7 +9,8 @@
     "lint": "eslint",
     "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "catalog:generate": "tsx scripts/generate-catalog.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.135.0",
