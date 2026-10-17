@@ -88,7 +88,7 @@ const DRAFTERS: Record<Category, (rng: Rng) => Draft> = {
     };
     const tags = [];
     if (gpu === "dedicated" && ram >= 16) tags.push("gaming");
-    if (weight < 1.4) tags.push("ultralight");
+    if (weight < 1.4) tags.push("ultralight", "travel");
     if (ram >= 32) tags.push("creator");
     if (battery >= 14) tags.push("long battery");
     return {

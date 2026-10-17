@@ -52,10 +52,11 @@
     "rating": 4,
     "reviewCount": 176,
     "stock": 18,
-    "description": "Arcadia laptop. Customers say the battery easily lasts a full day. Ideal for: gaming, ultralight, creator, long battery.",
+    "description": "Arcadia laptop. Customers say the battery easily lasts a full day. Ideal for: gaming, ultralight, travel, creator, long battery.",
     "tags": [
       "gaming",
       "ultralight",
+      "travel",
       "creator",
       "long battery"
     ],
@@ -224,9 +225,10 @@
     "rating": 4.8,
     "reviewCount": 691,
     "stock": 10,
-    "description": "Arcadia laptop. Customers say the 13.3\" screen is sharp. Ideal for: ultralight, creator.",
+    "description": "Arcadia laptop. Customers say the 13.3\" screen is sharp. Ideal for: ultralight, travel, creator.",
     "tags": [
       "ultralight",
+      "travel",
       "creator"
     ],
     "specs": {
@@ -504,9 +506,10 @@
     "rating": 3.1,
     "reviewCount": 291,
     "stock": 14,
-    "description": "Kestrel laptop. Customers say the 14\" screen is sharp. Ideal for: ultralight.",
+    "description": "Kestrel laptop. Customers say the 14\" screen is sharp. Ideal for: ultralight, travel.",
     "tags": [
-      "ultralight"
+      "ultralight",
+      "travel"
     ],
     "specs": {
       "screen_inches": 14,
@@ -638,9 +641,10 @@
     "rating": 3.9,
     "reviewCount": 41,
     "stock": 30,
-    "description": "Arcadia laptop. Customers say the 14\" screen is sharp. Ideal for: ultralight.",
+    "description": "Arcadia laptop. Customers say the 14\" screen is sharp. Ideal for: ultralight, travel.",
     "tags": [
-      "ultralight"
+      "ultralight",
+      "travel"
     ],
     "specs": {
       "screen_inches": 14,
@@ -991,9 +995,10 @@
     "rating": 4.2,
     "reviewCount": 226,
     "stock": 51,
-    "description": "Arcadia laptop. Customers say the 14\" screen is sharp. Ideal for: ultralight.",
+    "description": "Arcadia laptop. Customers say the 14\" screen is sharp. Ideal for: ultralight, travel.",
     "tags": [
-      "ultralight"
+      "ultralight",
+      "travel"
     ],
     "specs": {
       "screen_inches": 14,
@@ -1035,9 +1040,10 @@
     "rating": 5,
     "reviewCount": 725,
     "stock": 15,
-    "description": "Novatek laptop. Customers say the 14\" screen is sharp. Ideal for: ultralight.",
+    "description": "Novatek laptop. Customers say the 14\" screen is sharp. Ideal for: ultralight, travel.",
     "tags": [
-      "ultralight"
+      "ultralight",
+      "travel"
     ],
     "specs": {
       "screen_inches": 14,
