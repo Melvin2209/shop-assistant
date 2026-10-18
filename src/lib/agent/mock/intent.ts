@@ -38,6 +38,13 @@ const SHOPPING_WORDS =
 
 const GREETING = /^(hi|hello|hey|good (morning|afternoon|evening)|bonjour|salut)\b[\s!.,]*$/;
 
+/** Values of the "type" spec, only meaningful within their category. */
+const TYPE_WORDS: Partial<Record<Category, RegExp>> = {
+  headphones: /\b(over-ear|in-ear|on-ear)\b/,
+  speaker: /\b(portable|soundbar)\b/,
+  camera: /\b(mirrorless|compact|action)\b/,
+};
+
 /** "add it to my cart", "I'll take the second one", "buy P0042" */
 const CART =
   /\b(add|put)\b|\b(cart|basket)\b|\bi'?ll take\b|\b(buy|order|purchase) (it|this|that|the (first|second|third|last)|p\d{4})\b/;
@@ -92,6 +99,15 @@ export function extractSearchInput(text: string, category = detectCategory(text)
   if (/\b(stylus|pen)\b/.test(text)) specs.push({ key: "stylus_support", equals: true });
   if (/\b5g\b/.test(text)) specs.push({ key: "has_5g", equals: true });
   if (/\becg\b/.test(text)) specs.push({ key: "ecg", equals: true });
+  const typeWords = category && TYPE_WORDS[category];
+  const type = typeWords ? text.match(typeWords) : null;
+  if (type) specs.push({ key: "type", equals: type[1] });
+  const sensor = text.match(/\b(full[- ]frame|aps-c)\b/);
+  if (sensor) specs.push({ key: "sensor", equals: sensor[1] === "aps-c" ? "APS-C" : "full-frame" });
+  const atm = text.match(/(\d+)\s?atm\b/);
+  if (atm) specs.push({ key: "water_resistance_atm", min: Number(atm[1]) });
+  const mp = text.match(/(\d+)\s?mp\b/);
+  if (mp) specs.push({ key: category === "camera" ? "megapixels" : "camera_mp", min: Number(mp[1]) });
   if (specs.length) input.specs = specs;
 
   if (/\b(cheapest|least expensive|lowest price|most affordable)\b/.test(text)) input.sort = "price_asc";
@@ -102,6 +118,13 @@ export function extractSearchInput(text: string, category = detectCategory(text)
 
   const brand = [...new Set(PRODUCTS.map((p) => p.brand))].find((b) => text.includes(b.toLowerCase()));
   if (brand) input.brand = brand;
+
+  // Use-case tags of the category: "gaming laptop", "laptop for travel".
+  if (category) {
+    const tags = new Set(PRODUCTS.filter((p) => p.category === category).flatMap((p) => p.tags));
+    const wanted = [...tags].filter((t) => new RegExp(`\\b${t}\\b`).test(text));
+    if (wanted.length) input.tags = wanted;
+  }
   return input;
 }
 
@@ -143,6 +166,12 @@ export function detectIntent(history: ChatMessage[]): Intent {
     if (category) return { kind: "compare_search", input: { ...extractSearchInput(text, category), limit: 2 } };
     return { kind: "missing_reference", action: "compare" };
   }
+
+  // A product named explicitly: "How much is the Visionary Cinema 36?" (longest name wins).
+  const named = PRODUCTS.filter((p) => text.includes(p.name.toLowerCase())).sort(
+    (a, b) => b.name.length - a.name.length,
+  );
+  if (named.length && !explicitIds.length) return { kind: "details", productId: named[0].id };
 
   if (
     explicitIds.length === 1 ||

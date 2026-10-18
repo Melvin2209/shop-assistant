@@ -86,3 +86,21 @@ describe("detectIntent", () => {
     expect(detectIntent(ask("add it to my cart"))).toEqual({ kind: "missing_reference", action: "add_to_cart" });
   });
 });
+
+describe("extractSearchInput (attributes)", () => {
+  it("maps type, sensor, water resistance and tags to filters of the right category", () => {
+    expect(extractSearchInput("over-ear headphones").specs).toEqual([{ key: "type", equals: "over-ear" }]);
+    expect(extractSearchInput("a full frame camera").specs).toEqual([{ key: "sensor", equals: "full-frame" }]);
+    expect(extractSearchInput("watch with 10 atm").specs).toEqual([{ key: "water_resistance_atm", min: 10 }]);
+    expect(extractSearchInput("a gaming laptop").tags).toEqual(["gaming"]);
+    // "compact" is a camera type, not a tablet spec: no impossible filter.
+    expect(extractSearchInput("a compact tablet").specs).toBeUndefined();
+  });
+
+  it("recognizes a product by its name", () => {
+    expect(detectIntent(ask("How much does the Visionary Cinema 36 cost?"))).toEqual({
+      kind: "details",
+      productId: "P0080",
+    });
+  });
+});

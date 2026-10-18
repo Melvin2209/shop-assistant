@@ -30,9 +30,16 @@ export const CATEGORY_ALIASES: Record<Category, string> = {
   speaker: "speaker audio",
 };
 
-/** Text used by semantic search: meaning-bearing words only, no spec numbers. */
+/**
+ * Text used by semantic search: meaning-bearing words only. Text specs ("OLED",
+ * "full-frame") and true boolean specs ("noise cancelling") are kept; numbers
+ * are dropped because word vectors don't understand quantities.
+ */
 export function productSemanticText(p: Product): string {
-  return [CATEGORY_ALIASES[p.category], p.tags.join(" "), p.description].join(" ");
+  const specWords = Object.entries(p.specs).map(([key, value]) =>
+    typeof value === "string" && !/\d/.test(value) ? value : value === true ? key.replace(/_/g, " ") : "",
+  );
+  return [CATEGORY_ALIASES[p.category], p.tags.join(" "), p.description, ...specWords].join(" ");
 }
 
 /** Text used by keyword search: everything, including spec names and values. */

@@ -12,7 +12,8 @@
     "test:watch": "vitest",
     "catalog:generate": "tsx scripts/generate-catalog.ts",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "eval": "tsx eval/run.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.135.0",
