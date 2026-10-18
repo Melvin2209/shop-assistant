@@ -2,3 +2,5 @@ data/
 .next/
 node_modules/
 package-lock.json
+eval/results/
+docs/
