@@ -1,5 +1,5 @@
 import { CATEGORIES, type Category, type Review, type SpecValue } from "@/lib/catalog";
-import { CATEGORY_LABELS, formatPrice, formatSpec, KEY_SPECS } from "@/lib/format";
+import { CATEGORY_LABELS, formatPrice, formatSpec, KEY_SPECS, specCell, specLabel } from "@/lib/format";
 import type { SearchProductsInput } from "@/lib/tools/schemas";
 import type { CartLine, ProductSummary } from "@/lib/tools/tools";
 
@@ -104,7 +104,7 @@ export function compareAnswer(c: Comparison): string {
     `| Price | ${c.products.map((p) => formatPrice(p.price)).join(" | ")} |`,
     `| Rating | ${c.products.map((p) => `★ ${p.rating}`).join(" | ")} |`,
     ...Object.entries(c.specTable).map(
-      ([key, values]) => `| ${key.replace(/_/g, " ")} | ${values.map((v) => (v === null ? "n/a" : formatSpec(key, v))).join(" | ")} |`,
+      ([key, values]) => `| ${specLabel(key)} | ${values.map(specCell).join(" | ")} |`,
     ),
   ];
   const byId = (id: string) => c.products.find((p) => p.id === id)!;
@@ -115,7 +115,9 @@ export function compareAnswer(c: Comparison): string {
       ? `**${cheapest.name}** [${cheapest.id}] is both the cheapest and the best rated: an easy choice.`
       : `**${cheapest.name}** [${cheapest.id}] is the cheapest, **${best.name}** [${best.id}] is the best rated.`;
   return [
-    c.sameCategory ? "Here is a side-by-side comparison:" : "These products are from different categories, but here is how they compare:",
+    c.sameCategory
+      ? "Here is a side-by-side comparison:"
+      : "These products are from different categories, but here is how they compare:",
     "",
     header,
     separator,
@@ -144,6 +146,8 @@ export const unsupportedAnswer = (what: string) =>
 
 export const MISSING_REFERENCE_ANSWERS = {
   details: "Which product would you like to know more about? Give me its id, or ask me to search first.",
-  compare: "Which products should I compare? Search for a few first, then say \"compare the first two\" or give me 2-3 product ids.",
-  add_to_cart: "Which product should I add to your cart? Search first, then say \"add the first one\" or give me a product id.",
+  compare:
+    'Which products should I compare? Search for a few first, then say "compare the first two" or give me 2-3 product ids.',
+  add_to_cart:
+    'Which product should I add to your cart? Search first, then say "add the first one" or give me a product id.',
 };

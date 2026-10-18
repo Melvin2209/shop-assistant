@@ -85,7 +85,8 @@ export function checkGrounding(answer: string, toolCalls: ToolCallRecord[], user
   const successful = toolCalls.filter((c) => c.result.ok).map((c) => (c.result.ok ? c.result.data : null));
   const knownIds = collectIds(successful);
   // An error like "P0056 is out of stock" also comes from a tool.
-  for (const c of toolCalls) if (!c.result.ok) for (const id of c.result.error.match(ID_PATTERN) ?? []) knownIds.add(id);
+  for (const c of toolCalls)
+    if (!c.result.ok) for (const id of c.result.error.match(ID_PATTERN) ?? []) knownIds.add(id);
   const toolNumbers = collectNumbers(successful);
   const userNumbers = collectNumbers(userMessage);
 

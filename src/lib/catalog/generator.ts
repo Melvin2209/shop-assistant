@@ -284,7 +284,9 @@ function makeReviews(rng: Rng, rating: number, draft: Draft): Review[] {
     reviews.push({
       author: `${rng.pick(NAMES)} ${String.fromCharCode(65 + rng.int(0, 25))}.`,
       rating: r,
-      title: positive ? rng.pick(["Very happy", "Great value", "Does the job", "Recommended"]) : rng.pick(["Mixed feelings", "Not convinced", "Could be better"]),
+      title: positive
+        ? rng.pick(["Very happy", "Great value", "Does the job", "Recommended"])
+        : rng.pick(["Mixed feelings", "Not convinced", "Could be better"]),
       body: positive
         ? rng.pick([
             `Overall ${draft.highlight}. Only downside: ${draft.weakness}.`,

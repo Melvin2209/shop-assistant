@@ -3,7 +3,12 @@ import type { ChatMessage } from "../types";
 import { detectIntent, extractSearchInput } from "./intent";
 
 const ask = (content: string, previousAnswer?: string): ChatMessage[] => [
-  ...(previousAnswer ? [{ role: "user" as const, content: "..." }, { role: "assistant" as const, content: previousAnswer }] : []),
+  ...(previousAnswer
+    ? [
+        { role: "user" as const, content: "..." },
+        { role: "assistant" as const, content: previousAnswer },
+      ]
+    : []),
   { role: "user", content },
 ];
 
@@ -41,19 +46,39 @@ describe("detectIntent", () => {
   it("refuses off-topic questions and unsupported products", () => {
     expect(detectIntent(ask("What is the capital of France?")).kind).toBe("off_topic");
     expect(detectIntent(ask("Write me a poem about cats")).kind).toBe("off_topic");
-    expect(detectIntent(ask("Do you sell washing machines?"))).toEqual({ kind: "unsupported", what: "washing machines" });
+    expect(detectIntent(ask("Do you sell washing machines?"))).toEqual({
+      kind: "unsupported",
+      what: "washing machines",
+    });
   });
 
   it("resolves references to the previous answer", () => {
-    expect(detectIntent(ask("compare the first two", PREVIOUS))).toEqual({ kind: "compare", productIds: ["P0010", "P0020"] });
-    expect(detectIntent(ask("compare them", PREVIOUS))).toEqual({ kind: "compare", productIds: ["P0010", "P0020", "P0030"] });
-    expect(detectIntent(ask("tell me more about the third one", PREVIOUS))).toEqual({ kind: "details", productId: "P0030" });
+    expect(detectIntent(ask("compare the first two", PREVIOUS))).toEqual({
+      kind: "compare",
+      productIds: ["P0010", "P0020"],
+    });
+    expect(detectIntent(ask("compare them", PREVIOUS))).toEqual({
+      kind: "compare",
+      productIds: ["P0010", "P0020", "P0030"],
+    });
+    expect(detectIntent(ask("tell me more about the third one", PREVIOUS))).toEqual({
+      kind: "details",
+      productId: "P0030",
+    });
     // "it" = the recommendation, cited last.
-    expect(detectIntent(ask("add it to my cart", PREVIOUS))).toEqual({ kind: "add_to_cart", productId: "P0020", quantity: 1 });
+    expect(detectIntent(ask("add it to my cart", PREVIOUS))).toEqual({
+      kind: "add_to_cart",
+      productId: "P0020",
+      quantity: 1,
+    });
   });
 
   it("uses explicit ids and quantities", () => {
-    expect(detectIntent(ask("add 2 units of P0042 to my cart"))).toEqual({ kind: "add_to_cart", productId: "P0042", quantity: 2 });
+    expect(detectIntent(ask("add 2 units of P0042 to my cart"))).toEqual({
+      kind: "add_to_cart",
+      productId: "P0042",
+      quantity: 2,
+    });
     expect(detectIntent(ask("P0007"))).toEqual({ kind: "details", productId: "P0007" });
   });
 

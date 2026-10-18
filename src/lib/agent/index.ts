@@ -35,7 +35,10 @@ export async function* runAgent(
     yield { type: "error", message: describeApiError(err) };
   }
   // Numbers the user typed (e.g. a budget) may be repeated in the answer.
-  const userText = history.filter((m) => m.role === "user").map((m) => m.content).join("\n");
+  const userText = history
+    .filter((m) => m.role === "user")
+    .map((m) => m.content)
+    .join("\n");
   yield { type: "grounding", report: checkGrounding(text, toolCalls, userText) };
   yield { type: "done", mode };
 }

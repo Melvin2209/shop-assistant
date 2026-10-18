@@ -10,8 +10,18 @@ const searchCall: ToolCallRecord = {
     ok: true,
     data: {
       results: [
-        { id: "P0001", name: "Kestrel Forge 38", price: 929.99, specs: { ram_gb: 32, storage_gb: 1024, screen_inches: 16 } },
-        { id: "P0002", name: "Lumio Aero 21", price: 1229.99, specs: { ram_gb: 16, storage_gb: 512, screen_inches: 14 } },
+        {
+          id: "P0001",
+          name: "Kestrel Forge 38",
+          price: 929.99,
+          specs: { ram_gb: 32, storage_gb: 1024, screen_inches: 16 },
+        },
+        {
+          id: "P0002",
+          name: "Lumio Aero 21",
+          price: 1229.99,
+          specs: { ram_gb: 16, storage_gb: 512, screen_inches: 14 },
+        },
       ],
     },
   },
@@ -48,7 +58,12 @@ describe("checkGrounding", () => {
   });
 
   it("ignores failed tool calls as a source of truth", () => {
-    const failed: ToolCallRecord = { id: "t2", name: "get_product_details", input: {}, result: { ok: false, error: "x" } };
+    const failed: ToolCallRecord = {
+      id: "t2",
+      name: "get_product_details",
+      input: {},
+      result: { ok: false, error: "x" },
+    };
     expect(checkGrounding("It costs €929.99", [failed]).ungroundedPrices).toEqual([929.99]);
   });
 

@@ -7,12 +7,19 @@ import { tokenize } from "./text";
 
 describe("tokenize", () => {
   it("lowercases, strips accents and stopwords, keeps decimals", () => {
-    expect(tokenize("Un écran OLED for the 6.7\" phone!")).toEqual(["un", "ecran", "oled", "6.7", "phone"]);
+    expect(tokenize('Un écran OLED for the 6.7" phone!')).toEqual(["un", "ecran", "oled", "6.7", "phone"]);
   });
 });
 
 describe("Bm25Index", () => {
-  const index = new Bm25Index(["a", "b", "c"], [["red", "phone"], ["blue", "phone"], ["red", "red", "laptop"]]);
+  const index = new Bm25Index(
+    ["a", "b", "c"],
+    [
+      ["red", "phone"],
+      ["blue", "phone"],
+      ["red", "red", "laptop"],
+    ],
+  );
 
   it("only returns documents that contain a query term", () => {
     expect([...index.search(["laptop"]).keys()]).toEqual(["c"]);

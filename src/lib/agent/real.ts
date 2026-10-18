@@ -86,7 +86,8 @@ export async function* runRealAgent(
 
 /** Turns SDK errors into short messages that are safe to show to the user. */
 export function describeApiError(err: unknown): string {
-  if (err instanceof Anthropic.AuthenticationError) return "Invalid ANTHROPIC_API_KEY. Check your .env.local or remove it to use mock mode.";
+  if (err instanceof Anthropic.AuthenticationError)
+    return "Invalid ANTHROPIC_API_KEY. Check your .env.local or remove it to use mock mode.";
   if (err instanceof Anthropic.RateLimitError) return "Rate limited by the API. Please retry in a moment.";
   if (err instanceof Anthropic.APIConnectionError) return "Could not reach the Anthropic API.";
   if (err instanceof Anthropic.APIError) return `API error (${err.status ?? "unknown"}). Please retry.`;

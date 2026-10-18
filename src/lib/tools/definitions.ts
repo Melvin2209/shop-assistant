@@ -32,12 +32,20 @@ ${catalogVocabulary()}`,
 };
 
 export const TOOL_DEFINITIONS: Anthropic.Tool[] = [
-  { name: "search_products", description: DESCRIPTIONS.search_products, input_schema: inputSchema(searchProductsInput) },
+  {
+    name: "search_products",
+    description: DESCRIPTIONS.search_products,
+    input_schema: inputSchema(searchProductsInput),
+  },
   {
     name: "get_product_details",
     description: DESCRIPTIONS.get_product_details,
     input_schema: inputSchema(getProductDetailsInput),
   },
-  { name: "compare_products", description: DESCRIPTIONS.compare_products, input_schema: inputSchema(compareProductsInput) },
+  {
+    name: "compare_products",
+    description: DESCRIPTIONS.compare_products,
+    input_schema: inputSchema(compareProductsInput),
+  },
   { name: "add_to_cart", description: DESCRIPTIONS.add_to_cart, input_schema: inputSchema(addToCartInput) },
 ];

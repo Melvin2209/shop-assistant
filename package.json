@@ -10,13 +10,17 @@
     "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "catalog:generate": "tsx scripts/generate-catalog.ts"
+    "catalog:generate": "tsx scripts/generate-catalog.ts",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.135.0",
     "next": "16.4.2",
     "react": "19.3.0",
     "react-dom": "19.3.0",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
     "zod": "^4.6.7"
   },
   "devDependencies": {
@@ -26,6 +30,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.4.2",
+    "prettier": "^3.8.1",
     "tailwindcss": "^4",
     "tsx": "^4.23.15",
     "typescript": "^5",

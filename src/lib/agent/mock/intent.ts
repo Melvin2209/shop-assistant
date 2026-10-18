@@ -39,7 +39,8 @@ const SHOPPING_WORDS =
 const GREETING = /^(hi|hello|hey|good (morning|afternoon|evening)|bonjour|salut)\b[\s!.,]*$/;
 
 /** "add it to my cart", "I'll take the second one", "buy P0042" */
-const CART = /\b(add|put)\b|\b(cart|basket)\b|\bi'?ll take\b|\b(buy|order|purchase) (it|this|that|the (first|second|third|last)|p\d{4})\b/;
+const CART =
+  /\b(add|put)\b|\b(cart|basket)\b|\bi'?ll take\b|\b(buy|order|purchase) (it|this|that|the (first|second|third|last)|p\d{4})\b/;
 
 const ORDINALS: [RegExp, number][] = [
   [/\b(first|1st)\b/, 0],
@@ -62,7 +63,9 @@ export function extractSearchInput(text: string, category = detectCategory(text)
   const amount = "€?\\s?(\\d[\\d,]*(?:\\.\\d+)?)\\s?(?:€|eur(?:os?)?)?";
 
   const between = text.match(new RegExp(`between\\s+${amount}\\s+and\\s+${amount}`));
-  const max = text.match(new RegExp(`(?:under|below|less than|max(?:imum)?|up to|at most|budget(?: of| is)?|no more than|<)\\s*${amount}`));
+  const max = text.match(
+    new RegExp(`(?:under|below|less than|max(?:imum)?|up to|at most|budget(?: of| is)?|no more than|<)\\s*${amount}`),
+  );
   const min = text.match(new RegExp(`(?:over|above|more than|at least|from|>)\\s*${amount}`));
   const num = (s: string) => Number(s.replace(/,/g, ""));
   if (between) {
@@ -141,7 +144,12 @@ export function detectIntent(history: ChatMessage[]): Intent {
     return { kind: "missing_reference", action: "compare" };
   }
 
-  if (explicitIds.length === 1 || /\b(tell me more|more (info|details)|details|reviews?|what do (people|customers) say|specs of|is it good)\b/.test(text)) {
+  if (
+    explicitIds.length === 1 ||
+    /\b(tell me more|more (info|details)|details|reviews?|what do (people|customers) say|specs of|is it good)\b/.test(
+      text,
+    )
+  ) {
     if (ids.length) return { kind: "details", productId: ids[0] };
     if (!detectCategory(text)) return { kind: "missing_reference", action: "details" };
   }

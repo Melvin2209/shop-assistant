@@ -47,6 +47,34 @@ export function formatSpec(key: string, value: SpecValue): string {
   return ["type", "panel", "resolution"].includes(key) ? String(value) : `${label}: ${value}`;
 }
 
+const UNIT_SUFFIXES: Record<string, string> = {
+  gb: "GB",
+  inches: "in",
+  hours: "h",
+  kg: "kg",
+  g: "g",
+  mp: "MP",
+  mah: "mAh",
+  hz: "Hz",
+  days: "days",
+  mm: "mm",
+  atm: "ATM",
+  w: "W",
+};
+
+/** Column/row label for a spec key: "battery_hours" -> "Battery (h)", "has_5g" -> "5G". */
+export function specLabel(key: string): string {
+  if (BOOLEAN_LABELS[key]) return BOOLEAN_LABELS[key].replace(/^\w/, (c) => c.toUpperCase());
+  const parts = key.split("_");
+  const unit = UNIT_SUFFIXES[parts[parts.length - 1]];
+  const name = (unit ? parts.slice(0, -1) : parts).join(" ").replace(/^\w/, (c) => c.toUpperCase());
+  return unit ? `${name} (${unit})` : name;
+}
+
+/** Raw spec value for a table cell: booleans become yes/no, the unit is in the row label. */
+export const specCell = (value: SpecValue | null) =>
+  value === null ? "n/a" : typeof value === "boolean" ? (value ? "yes" : "no") : String(value);
+
 /** The specs worth showing in a one-line product summary. */
 export const KEY_SPECS: Record<Category, string[]> = {
   laptop: ["ram_gb", "storage_gb", "screen_inches", "battery_hours", "weight_kg"],

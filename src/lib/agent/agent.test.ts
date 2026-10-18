@@ -36,7 +36,10 @@ describe("mock agent", () => {
     }
 
     const compare = await say("compare the first two");
-    expect(compare.toolCalls[0]).toMatchObject({ name: "compare_products", input: { product_ids: search.grounding.citedIds.slice(0, 2) } });
+    expect(compare.toolCalls[0]).toMatchObject({
+      name: "compare_products",
+      input: { product_ids: search.grounding.citedIds.slice(0, 2) },
+    });
     expect(compare.grounding.grounded).toBe(true);
 
     const cart = await say("add the first one to my cart");
@@ -45,7 +48,9 @@ describe("mock agent", () => {
   });
 
   it("politely refuses off-topic requests without calling tools", async () => {
-    const result = await runAgentToCompletion([{ role: "user", content: "Who won the 1998 World Cup?" }], { mode: "mock" });
+    const result = await runAgentToCompletion([{ role: "user", content: "Who won the 1998 World Cup?" }], {
+      mode: "mock",
+    });
     expect(result.toolCalls).toHaveLength(0);
     expect(result.text).toMatch(/only help with shopping/);
   });
@@ -96,14 +101,18 @@ describe("real agent loop", () => {
 
     const toolCalls: ToolCallRecord[] = [];
     const events: AgentEvent[] = [];
-    for await (const e of runRealAgent([{ role: "user", content: "price of that TV?" }], toolCalls, client)) events.push(e);
+    for await (const e of runRealAgent([{ role: "user", content: "price of that TV?" }], toolCalls, client))
+      events.push(e);
 
     expect(events.map((e) => e.type)).toEqual(["text", "tool_call", "tool_result", "text"]);
     expect(toolCalls[0].result.ok).toBe(true);
     // Second request = history + assistant tool_use + user tool_result, in that order.
     const second = requests[1].messages;
     expect(second.map((m) => m.role)).toEqual(["user", "assistant", "user"]);
-    expect((second[2].content as Anthropic.ToolResultBlockParam[])[0]).toMatchObject({ tool_use_id: "tu_1", is_error: false });
+    expect((second[2].content as Anthropic.ToolResultBlockParam[])[0]).toMatchObject({
+      tool_use_id: "tu_1",
+      is_error: false,
+    });
     expect(requests[0].model).toBe("claude-haiku-5-5");
   });
 
