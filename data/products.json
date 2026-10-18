@@ -6506,8 +6506,9 @@
     "rating": 3.9,
     "reviewCount": 458,
     "stock": 33,
-    "description": "Kestrel camera. Customers say stabilization makes handheld video smooth. Ideal for: sport, travel.",
+    "description": "Kestrel camera. Customers say stabilization makes handheld video smooth. Ideal for: photography, sport, travel.",
     "tags": [
+      "photography",
       "sport",
       "travel"
     ],
@@ -6543,8 +6544,9 @@
     "rating": 3.4,
     "reviewCount": 282,
     "stock": 46,
-    "description": "Optiq camera. Customers say the image quality is excellent. Ideal for: sport, travel.",
+    "description": "Optiq camera. Customers say the image quality is excellent. Ideal for: photography, sport, travel.",
     "tags": [
+      "photography",
       "sport",
       "travel"
     ],
@@ -6580,8 +6582,9 @@
     "rating": 4.4,
     "reviewCount": 155,
     "stock": 14,
-    "description": "Arcadia camera. Customers say the image quality is excellent. Ideal for: travel.",
+    "description": "Arcadia camera. Customers say the image quality is excellent. Ideal for: photography, travel.",
     "tags": [
+      "photography",
       "travel"
     ],
     "specs": {
@@ -6616,8 +6619,9 @@
     "rating": 3.1,
     "reviewCount": 587,
     "stock": 18,
-    "description": "Pixelon camera. Customers say stabilization makes handheld video smooth. Ideal for: sport, travel.",
+    "description": "Pixelon camera. Customers say stabilization makes handheld video smooth. Ideal for: photography, sport, travel.",
     "tags": [
+      "photography",
       "sport",
       "travel"
     ],
@@ -6665,8 +6669,9 @@
     "rating": 4.9,
     "reviewCount": 64,
     "stock": 47,
-    "description": "Optiq camera. Customers say stabilization makes handheld video smooth. Ideal for: travel.",
+    "description": "Optiq camera. Customers say stabilization makes handheld video smooth. Ideal for: photography, travel.",
     "tags": [
+      "photography",
       "travel"
     ],
     "specs": {
@@ -6707,8 +6712,10 @@
     "rating": 4.8,
     "reviewCount": 233,
     "stock": 33,
-    "description": "Kestrel camera. Customers say stabilization makes handheld video smooth.",
-    "tags": [],
+    "description": "Kestrel camera. Customers say stabilization makes handheld video smooth. Ideal for: photography.",
+    "tags": [
+      "photography"
+    ],
     "specs": {
       "type": "mirrorless",
       "sensor": "APS-C",
@@ -6741,8 +6748,10 @@
     "rating": 3.2,
     "reviewCount": 144,
     "stock": 13,
-    "description": "Arcadia camera. Customers say the image quality is excellent.",
-    "tags": [],
+    "description": "Arcadia camera. Customers say the image quality is excellent. Ideal for: photography.",
+    "tags": [
+      "photography"
+    ],
     "specs": {
       "type": "mirrorless",
       "sensor": "APS-C",
@@ -6775,8 +6784,10 @@
     "rating": 4.5,
     "reviewCount": 92,
     "stock": 57,
-    "description": "Arcadia camera. Customers say the image quality is excellent.",
-    "tags": [],
+    "description": "Arcadia camera. Customers say the image quality is excellent. Ideal for: photography.",
+    "tags": [
+      "photography"
+    ],
     "specs": {
       "type": "mirrorless",
       "sensor": "APS-C",
@@ -6821,8 +6832,9 @@
     "rating": 3.9,
     "reviewCount": 610,
     "stock": 32,
-    "description": "Pixelon camera. Customers say stabilization makes handheld video smooth. Ideal for: travel.",
+    "description": "Pixelon camera. Customers say stabilization makes handheld video smooth. Ideal for: photography, travel.",
     "tags": [
+      "photography",
       "travel"
     ],
     "specs": {
@@ -6869,8 +6881,9 @@
     "rating": 4.8,
     "reviewCount": 598,
     "stock": 33,
-    "description": "Kestrel camera. Customers say stabilization makes handheld video smooth. Ideal for: professional.",
+    "description": "Kestrel camera. Customers say stabilization makes handheld video smooth. Ideal for: photography, professional.",
     "tags": [
+      "photography",
       "professional"
     ],
     "specs": {
@@ -6905,8 +6918,9 @@
     "rating": 3.6,
     "reviewCount": 47,
     "stock": 34,
-    "description": "Arcadia camera. Customers say stabilization makes handheld video smooth. Ideal for: sport, travel.",
+    "description": "Arcadia camera. Customers say stabilization makes handheld video smooth. Ideal for: photography, sport, travel.",
     "tags": [
+      "photography",
       "sport",
       "travel"
     ],
@@ -6948,8 +6962,10 @@
     "rating": 4.9,
     "reviewCount": 780,
     "stock": 3,
-    "description": "Optiq camera. Customers say stabilization makes handheld video smooth.",
-    "tags": [],
+    "description": "Optiq camera. Customers say stabilization makes handheld video smooth. Ideal for: photography.",
+    "tags": [
+      "photography"
+    ],
     "specs": {
       "type": "mirrorless",
       "sensor": "APS-C",
@@ -6994,8 +7010,9 @@
     "rating": 4.7,
     "reviewCount": 532,
     "stock": 35,
-    "description": "Kestrel camera. Customers say stabilization makes handheld video smooth. Ideal for: travel.",
+    "description": "Kestrel camera. Customers say stabilization makes handheld video smooth. Ideal for: photography, travel.",
     "tags": [
+      "photography",
       "travel"
     ],
     "specs": {
@@ -7030,8 +7047,9 @@
     "rating": 3.4,
     "reviewCount": 497,
     "stock": 39,
-    "description": "Kestrel camera. Customers say stabilization makes handheld video smooth. Ideal for: professional.",
+    "description": "Kestrel camera. Customers say stabilization makes handheld video smooth. Ideal for: photography, professional.",
     "tags": [
+      "photography",
       "professional"
     ],
     "specs": {
@@ -7078,8 +7096,10 @@
     "rating": 4.8,
     "reviewCount": 674,
     "stock": 41,
-    "description": "Kestrel camera. Customers say the image quality is excellent.",
-    "tags": [],
+    "description": "Kestrel camera. Customers say the image quality is excellent. Ideal for: photography.",
+    "tags": [
+      "photography"
+    ],
     "specs": {
       "type": "mirrorless",
       "sensor": "APS-C",
@@ -7118,8 +7138,9 @@
     "rating": 4.6,
     "reviewCount": 96,
     "stock": 27,
-    "description": "Kestrel camera. Customers say stabilization makes handheld video smooth. Ideal for: professional.",
+    "description": "Kestrel camera. Customers say stabilization makes handheld video smooth. Ideal for: photography, professional.",
     "tags": [
+      "photography",
       "professional"
     ],
     "specs": {
@@ -7160,8 +7181,10 @@
     "rating": 4.6,
     "reviewCount": 551,
     "stock": 5,
-    "description": "Kestrel camera. Customers say stabilization makes handheld video smooth.",
-    "tags": [],
+    "description": "Kestrel camera. Customers say stabilization makes handheld video smooth. Ideal for: photography.",
+    "tags": [
+      "photography"
+    ],
     "specs": {
       "type": "mirrorless",
       "sensor": "APS-C",
@@ -7200,8 +7223,9 @@
     "rating": 3.6,
     "reviewCount": 626,
     "stock": 25,
-    "description": "Pixelon camera. Customers say stabilization makes handheld video smooth. Ideal for: travel.",
+    "description": "Pixelon camera. Customers say stabilization makes handheld video smooth. Ideal for: photography, travel.",
     "tags": [
+      "photography",
       "travel"
     ],
     "specs": {
@@ -7248,8 +7272,9 @@
     "rating": 3.1,
     "reviewCount": 210,
     "stock": 0,
-    "description": "Arcadia camera. Customers say stabilization makes handheld video smooth. Ideal for: travel.",
+    "description": "Arcadia camera. Customers say stabilization makes handheld video smooth. Ideal for: photography, travel.",
     "tags": [
+      "photography",
       "travel"
     ],
     "specs": {
@@ -7290,8 +7315,10 @@
     "rating": 4.1,
     "reviewCount": 690,
     "stock": 46,
-    "description": "Pixelon camera. Customers say stabilization makes handheld video smooth.",
-    "tags": [],
+    "description": "Pixelon camera. Customers say stabilization makes handheld video smooth. Ideal for: photography.",
+    "tags": [
+      "photography"
+    ],
     "specs": {
       "type": "mirrorless",
       "sensor": "APS-C",
@@ -7336,8 +7363,9 @@
     "rating": 4.1,
     "reviewCount": 84,
     "stock": 15,
-    "description": "Pixelon camera. Customers say stabilization makes handheld video smooth. Ideal for: sport, travel.",
+    "description": "Pixelon camera. Customers say stabilization makes handheld video smooth. Ideal for: photography, sport, travel.",
     "tags": [
+      "photography",
       "sport",
       "travel"
     ],
@@ -7373,8 +7401,9 @@
     "rating": 3.2,
     "reviewCount": 13,
     "stock": 8,
-    "description": "Arcadia camera. Customers say the image quality is excellent. Ideal for: sport, travel.",
+    "description": "Arcadia camera. Customers say the image quality is excellent. Ideal for: photography, sport, travel.",
     "tags": [
+      "photography",
       "sport",
       "travel"
     ],
@@ -7416,8 +7445,9 @@
     "rating": 4.8,
     "reviewCount": 422,
     "stock": 12,
-    "description": "Arcadia camera. Customers say stabilization makes handheld video smooth. Ideal for: travel.",
+    "description": "Arcadia camera. Customers say stabilization makes handheld video smooth. Ideal for: photography, travel.",
     "tags": [
+      "photography",
       "travel"
     ],
     "specs": {
@@ -7464,8 +7494,9 @@
     "rating": 4.1,
     "reviewCount": 836,
     "stock": 37,
-    "description": "Kestrel camera. Customers say stabilization makes handheld video smooth. Ideal for: travel.",
+    "description": "Kestrel camera. Customers say stabilization makes handheld video smooth. Ideal for: photography, travel.",
     "tags": [
+      "photography",
       "travel"
     ],
     "specs": {
@@ -7500,8 +7531,10 @@
     "rating": 3.7,
     "reviewCount": 650,
     "stock": 2,
-    "description": "Pixelon camera. Customers say the image quality is excellent.",
-    "tags": [],
+    "description": "Pixelon camera. Customers say the image quality is excellent. Ideal for: photography.",
+    "tags": [
+      "photography"
+    ],
     "specs": {
       "type": "mirrorless",
       "sensor": "APS-C",

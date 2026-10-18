@@ -233,7 +233,7 @@ const DRAFTERS: Record<Category, (rng: Rng) => Draft> = {
       stabilization: rng.chance(0.7),
       weight_g: type === "action" ? rng.int(120, 160) : type === "compact" ? rng.int(250, 350) : rng.int(450, 750),
     };
-    const tags = [];
+    const tags = ["photography"];
     if (type === "action") tags.push("sport", "travel");
     if (sensor === "full-frame") tags.push("professional");
     if (type === "compact") tags.push("travel");
